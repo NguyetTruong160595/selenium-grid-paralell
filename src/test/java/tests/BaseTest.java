@@ -13,7 +13,7 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setUp(String browser) throws MalformedURLException {
+    public void setUp(@Optional("chrome") String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         if (browser.equalsIgnoreCase("chrome")) {

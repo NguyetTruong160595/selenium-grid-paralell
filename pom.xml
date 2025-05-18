@@ -24,11 +24,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.10.0</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
@@ -37,10 +32,12 @@
 
         <!-- Allure -->
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.24.0</version>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-junit4</artifactId>
+          <version>2.21.0</version>
+          <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -51,9 +48,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                  <parallel>classes</parallel>
+                  <threadCount>2</threadCount>
+                  <forkCount>1</forkCount>
+                  <reuseForks>true</reuseForks>
+                  <argLine>-Xmx512m</argLine> <!-- limit JVM heap -->
                 </configuration>
             </plugin>
 
@@ -64,6 +63,8 @@
                 <version>2.11.2</version>
             </plugin>
         </plugins>
+
     </build>
+
 
 </project>

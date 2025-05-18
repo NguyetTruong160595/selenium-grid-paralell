@@ -14,12 +14,14 @@
     </test>
 
     <test name="GoogleNavigationChromeTest">
+        <parameter name="browser" value="chrome"/>
         <classes>
         <class name="tests.GoogleNavigationTest"/>
         </classes>
     </test>
     <!-- Other tests -->
     <test name="GoogleNavigationFirefoxTest">
+        <parameter name="browser" value="firefox"/>
         <classes>
         <class name="tests.GoogleNavigationTest"/>
         </classes>
